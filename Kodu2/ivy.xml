@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://ivy.webmedia.int/ivy-doc.xsl"?>
+<ivy-module version="1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
+
+	<info organisation="itcollege" module="i377-praks1">
+		<ivyauthor name="Priit Liivak" url="mailto:priit.liivak@itcollege.ee" />
+	</info>
+
+	<configurations>
+		<conf name="build" extends="runtime,source"
+			description="Modules needed only for building application from source" />
+		<conf name="runtime" description="Modules needed for running application" />
+		<conf name="source" description="Sources of used jars" />
+	</configurations>
+
+	<dependencies>
+		<dependency org="javax.servlet" name="javax.servlet-api" rev="3.0.1" conf="build->default" />
+		<dependency org="javax.servlet" name="jstl" rev="1.2" conf="runtime->default" />
+		<dependency org="hsqldb" name="hsqldb" rev="1.8.0.10" conf="runtime->default"/>
+		<dependency org="org.hibernate" name="hibernate-entitymanager" rev="4.1.7.Final" conf="runtime->default"/> 
+
+	</dependencies>
+</ivy-module>

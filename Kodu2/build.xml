@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<project name="TeamX" default="compile" xmlns:ivy="antlib:org.apache.ivy.ant">
+
+	<property name="team.name" value="Team-X" />
+	<property name="project.name" value="piirivalve" />
+	<property name="project.dir" value="${basedir}" />
+
+	<property name="src.dir" value="${project.dir}/src" />
+	<property name="web.dir" value="${project.dir}/WebContent" />
+	<property name="web-inf.dir" value="${web.dir}/WEB-INF" />
+	<property name="classes.dir" value="${web-inf.dir}/classes" />
+	<property name="dist.dir" location="dist" />
+
+	<property name="lib.dir" location="${project.dir}/lib" />
+	<property name="build.lib.dir" location="${lib.dir}/build" />
+	<property name="runtime.lib.dir" location="${web-inf.dir}/lib" />
+	<property name="ivy.cache.dir" location="${basedir}/ivy" description="Temporary dir where ivy stores its local cache" />
+
+	<path id="build.class.path">
+		<fileset dir="${runtime.lib.dir}" includes="*.jar" />
+		<fileset dir="${lib.dir}" includes="**/*.jar" />
+	</path>
+
+	<target name="clean" depends="clean-lib" description="remove intermediate files">
+		<delete dir="${classes.dir}" />
+		<delete dir="${dist.dir}" />
+		<delete dir="${ivy.cache.dir}" />
+	</target>
+
+	<target name="compile" description="compile the Java source code to class files" depends="ivy-retrieve">
+		<mkdir dir="${classes.dir}" />
+		<mkdir dir="${runtime.lib.dir}"/>
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="build.class.path" />
+	</target>
+
+	<!-- IVY -->
+	<path id="ivy.lib.path">
+		<fileset dir="${lib.dir}" includes="ivy-2.2.0.jar" />
+	</path>
+
+	<target name="ivy-retrieve" description="Retrieve dependencies with ivy">
+		<taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path" />
+		<property name="ivy.default.ivy.user.dir" value="${ivy.cache.dir}" />
+		<ivy:resolve file="${project.dir}/ivy.xml" log="download-only" />
+
+		<ivy:retrieve pattern="${build.lib.dir}/[artifact]-[revision].[ext]" conf="build" sync="true" />
+		<ivy:retrieve pattern="${lib.dir}/sources/[artifact]-[revision].[ext]" conf="source" sync="true" />
+		<ivy:retrieve pattern="${runtime.lib.dir}/[artifact]-[revision].[ext]" conf="runtime" sync="true" />
+	</target>
+
+	<target name="clean-lib" description="Removes all libraries">
+		<delete file="${project.dir}/ivy.xml.MD5" />
+		<delete dir="${lib.dir}">
+			<include name="**/*.jar" />
+			<include name="**/*.zip" />
+			<exclude name="ivy-2.2.0.jar" />
+		</delete>
+		<delete dir="${runtime.lib.dir}">
+			<include name="*.jar" />
+		</delete>
+	</target>
+
+
+	<target name="war" description="Builds everything and constructs a .war archive" depends="compile">
+		<mkdir dir="${dist.dir}" />
+		<copy file="${src.dir}/META-INF/persistence.xml" todir="${classes.dir}/META-INF" overwrite="true" />
+		<war basedir="${web.dir}" destfile="${dist.dir}/${project.name}-${team.name}.war" webxml="${web-inf.dir}/web.xml" />
+		<delete file="${dist.dir}/web.xml" />
+	</target>
+
+</project>
