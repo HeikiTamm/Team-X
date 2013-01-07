@@ -1,0 +1,17 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        classpath:/org/springframework/beans/factory/xml/spring-beans-3.0.xsd 
+        http://www.springframework.org/schema/context 
+        classpath:/org/springframework/context/config/spring-context-3.0.xsd 
+        http://www.springframework.org/schema/mvc 
+        classpath:/org/springframework/web/servlet/config/spring-mvc-3.0.xsd">
+
+	<context:component-scan base-package="ee.itcollege.i377" />
+
+</beans>
+
+
+
