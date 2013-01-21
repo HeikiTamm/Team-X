@@ -20,6 +20,7 @@
 		<!-- Servlet -->
 		<dependency org="javax.servlet" name="javax.servlet-api" rev="3.0.1" conf="build->default" />
 		<dependency org="javax.servlet" name="jstl" rev="1.2" conf="runtime->default" />
+		<dependency org="javax.validation" name="validation-api" rev="1.0.0.GA"/>
 		
 		<!-- JPA -->
 		<dependency org="org.hsqldb" name="hsqldb" rev="2.2.8" conf="source,runtime->default"/>
@@ -30,6 +31,9 @@
 		<dependency org="org.springframework" name="spring-context" rev="3.1.2.RELEASE" conf="source,runtime->default" />
 		<dependency org="org.springframework" name="spring-webmvc" rev="3.1.2.RELEASE" conf="source,runtime->default" />
 		<dependency org="org.springframework" name="spring-web" rev="3.1.2.RELEASE" conf="source,runtime->default" />
+		<dependency org="org.springframework.security" name="spring-security-web" rev="3.1.2.RELEASE" conf="runtime->default" />
+		<dependency org="org.springframework.security" name="spring-security-config" rev="3.1.2.RELEASE" conf="runtime->default" />
+		<dependency org="org.springframework.security" name="spring-security-taglibs" rev="3.1.2.RELEASE" conf="runtime->default" />
 		
 		<!-- Logimine -->
 		<dependency org="commons-logging" name="commons-logging" rev="1.1.1" conf="runtime->default" />

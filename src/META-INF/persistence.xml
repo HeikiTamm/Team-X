@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 	<persistence-unit name="Team10" transaction-type="RESOURCE_LOCAL">
-		<class>ee.itcollege.i377.team10.model.Guard</class>
+		<class>ee.itcollege.i377.team10.entity.Amet</class>
+		<class>ee.itcollege.i377.team10.entity.Ametpiiripunkti</class>
+		<class>ee.itcollege.i377.team10.entity.Ametvaeosa</class>
+		<class>ee.itcollege.i377.team10.entity.Auaste</class>
+		<class>ee.itcollege.i377.team10.entity.Intsident</class>
+		<class>ee.itcollege.i377.team10.entity.Piiriloiguhaldaja</class>
+		<class>ee.itcollege.i377.team10.entity.Piiriloik</class>
+		<class>ee.itcollege.i377.team10.entity.Piiripunkt</class>
+		<class>ee.itcollege.i377.team10.entity.Piiririkkuja</class>
+		<class>ee.itcollege.i377.team10.entity.Piirivalvur</class>
+		<class>ee.itcollege.i377.team10.entity.Piirivalvurauaste</class>
+		<class>ee.itcollege.i377.team10.entity.Piirivalvurpiiripunkti</class>
+		<class>ee.itcollege.i377.team10.entity.Piirivalvurvaeosa</class>
+		<class>ee.itcollege.i377.team10.entity.Sequence</class>
+		<class>ee.itcollege.i377.team10.entity.Vaeosa</class>
+		<class>ee.itcollege.i377.team10.entity.Vahtkond</class>
+		<class>ee.itcollege.i377.team10.entity.Vahtkondpiiriloigul</class>
+		<class>ee.itcollege.i377.team10.entity.Vahtkonnaliige</class>
 		<properties>
 			<!-- JPA configuration -->
 			<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:file:${user.home}/i377/Team10/db;shutdown=true"/>
