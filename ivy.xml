@@ -25,6 +25,8 @@
 		<!-- JPA -->
 		<dependency org="org.hsqldb" name="hsqldb" rev="2.2.8" conf="source,runtime->default"/>
 		<dependency org="org.hibernate" name="hibernate-entitymanager" rev="4.1.7.Final" conf="source,runtime->default"/>
+		<dependency org="org.hibernate" name="hibernate-validator" rev="4.3.1.Final" conf="source,runtime->default"/>
+		<dependency org="org.hibernate" name="hibernate-validator-annotation-processor" rev="4.3.1.Final" conf="source,runtime->default"/>
 		
 		<!-- Spring -->
 		<dependency org="org.springframework" name="spring-core" rev="3.1.2.RELEASE" conf="source,runtime->default" /> 

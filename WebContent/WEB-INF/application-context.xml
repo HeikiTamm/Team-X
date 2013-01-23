@@ -8,7 +8,7 @@
         classpath:/org/springframework/context/config/spring-context-3.0.xsd 
         http://www.springframework.org/schema/mvc 
         classpath:/org/springframework/web/servlet/config/spring-mvc-3.0.xsd">
-	<import resource="spring-security.xml" />
+	<import resource="security-context.xml" />
 	
 	<context:component-scan base-package="ee.itcollege.i377.team10" />
 
