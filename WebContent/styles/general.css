@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+
+.leftColumn {
+	float: left;
+}
+
+.rightColumn {
+	float: left;
+	margin-left: 5px;
+}
+
+.clear {
+	clear: both;
+}

@@ -7,6 +7,16 @@
 		<param-value>/WEB-INF/application-context.xml</param-value>
 	</context-param>
 	
+	<servlet-mapping>
+	  <servlet-name>default</servlet-name>
+	  <url-pattern>*.css</url-pattern>
+	 </servlet-mapping>
+	
+	 <servlet-mapping>
+	    <servlet-name>default</servlet-name>
+	    <url-pattern>*.js</url-pattern>
+	 </servlet-mapping>
+	
 	<servlet>
 		<servlet-name>mvc-dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

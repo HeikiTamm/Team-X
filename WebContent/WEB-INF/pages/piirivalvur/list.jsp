@@ -5,7 +5,7 @@
 <pr:layout>
 	<h3><spring:message code="guards.title"/></h3>
 	
-	<c:if test="${not empty allGuards}">
+	<c:if test="${not empty items}">
 		
 		<table>
 			<tr>
@@ -13,16 +13,16 @@
 				<th>Name</th>
 				<th>Age</th>
 			</tr>
-			<c:forEach items="${allGuards}" var="guard"> 
+			<c:forEach items="${items}" var="item"> 
 				<tr>
-					<td>${guard.id}</td>
-					<td>${guard.name}</td>
-					<td>${guard.age}</td>
+					<td>${item.id}</td>
+					<td>${item.name}</td>
+					<td>${item.age}</td>
 				</tr>
 			</c:forEach>
 		</table>
 	</c:if>
 	
-	<a href="guardForm">Add New</a>
+	<a href="piirivalvur/add">Add New</a>
 	
 </pr:layout>
